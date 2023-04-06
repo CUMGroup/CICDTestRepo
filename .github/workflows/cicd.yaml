@@ -1,0 +1,17 @@
+name: CICD
+
+on:
+  push:
+    branches: [ main ]
+    
+jobs:
+  call_pipeline:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Webhook
+      uses: distributhor/workflow-webhook
+      env:
+        webhook_type: 'form-urlencoded'
+        webhook_url: ${{ secrets.CICD_URL }}
+        data: 'apiToken=${{ secrets.CICD_TOKEN }}'

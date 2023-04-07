@@ -14,4 +14,5 @@ jobs:
       env:
         webhook_type: 'form-urlencoded'
         webhook_url: ${{ secrets.CICD_URL }}
+        webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
         data: 'apiToken=${{ secrets.CICD_TOKEN }}'
